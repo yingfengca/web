@@ -40,19 +40,36 @@
                 transform:translateX(30px)
             }
         }
+
+        #laugh{
+            visibility:hidden;
+            width: 20px;
+            height: 15px;
+            
+        }
+
+        @keyframes zoomIn {
+            from{
+                transform: scale(1);
+            }
+            to{
+                transform: scale(110);
+            }
+        }
+
+
     </style>
 </head>
 <body>
-    <button id="btn" onclick="creepy.play()">DO NOT CLICK ! ! !</button>
+    <button id="btn" onclick="show()">DO NOT CLICK ! ! !</button>
     <audio src="creepy.mp3" id="creepy"></audio>
-    <audio src=""></audio>
+    <img src="laugh.gif" id ="laugh" alt="">
+    <script>
+        function show(){
+            creepy.play()
+            laugh.style.visibility="visible"
+            laugh.style.animation="zoomIn 1s forwards";
+        }
+    </script>
 </body>
 </html>
-<script>
-    window.onload=function(){
-        let bg=new Audio("bg.mp3");
-        bg.volume=0.2;
-        bg.play()
-    }
-    
-</script>
