@@ -40,34 +40,22 @@
             }
         }
 
+        #spaceship{
+            background-image: url(spaceship.png);
+            background-size: cover;
+            width: 100px;
+            height: 100px;
 
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            /* animation: lunch 5s cubic-bezier(.65,-0.01,.72,.16) 1s; */
+        }
 
         @keyframes lunch {
             to{
                 bottom: 100vh;
-            }
-        }
-
-        #spaceship{
-            width: 200px;
-            height: 200px;
-            background-image: url(spaceship.png);
-            background-size: cover;
-
-            position: absolute;
-            top:100vh;
-            left:50vw;
-            transform: translate(-50%,-100%);
-
-            /* animation: launch 2s cubic-bezier(.64,.04,.76,.13); */
-        }
-
-        @keyframes launch {
-            from{
-
-            }
-            to{
-                top:0vh;
             }
         }
 
@@ -108,40 +96,31 @@
                 sky.appendChild(star)
             }
         </script>
-        <!-- <div id="moon"></div> -->
-
-
+        <div id="moon"></div>
         <div id="spaceship"></div>
-
     </div>
 
     <script>
-        document.onkeydown=function(event){
-            if(event.key=="a"){
-                spaceship.style.left=spaceship.offsetLeft-50+"px"
+        document.addEventListener("keydown",event=>{
+            console.log(event);
+            if(event.key=='a'){
+                let left=spaceship.offsetLeft
+                spaceship.style.left=left-50+"px";
+            }
+            if(event.key=='d'){
+                let left=spaceship.offsetLeft
+                spaceship.style.left=left+50+"px";
+            }
+            if(event.key=='s'){
+                let top=spaceship.offsetTop
+                spaceship.style.top=top+50+"px";
             }
 
-            if(event.key=="d"){
-                spaceship.style.left=spaceship.offsetLeft+50+"px"
+            if(event.key=='w'){
+                let top=spaceship.offsetTop
+                spaceship.style.top=top-50+"px";
             }
-
-            if(event.key=="w"){
-                spaceship.style.top=spaceship.offsetTop-50+"px"
-            }
-
-            if(event.key=="s"){
-                spaceship.style.top=spaceship.offsetTop+50+"px"
-            }
-
-            console.log(event.key);
-
-
-
-        }
-        
-        spaceship.style.top=spaceship.offsetTop-0+"px";
-        spaceship.style.left=spaceship.offsetLeft-0+"px";
-        
+        })
     </script>
 </body>
 

@@ -10,9 +10,11 @@
             padding: 0;
             margin: 0;
         }
+        body{
+            background-color: black;
+        }
 
         #sky {
-            background-color: black;
             height: 100vh;
         }
 
@@ -47,19 +49,33 @@
                 bottom: 100vh;
             }
         }
-
-        #spaceship{
-            width: 200px;
-            height: 200px;
-            background-image: url(spaceship.png);
-            background-size: cover;
-
+        #control{
+            width: 300px;
+            height: 300px;
             position: absolute;
             top:100vh;
             left:50vw;
             transform: translate(-50%,-100%);
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #spaceship{
+            
+            width: 150px;
+            height: 150px;
+            background-image: url(spaceship.png);
+            background-size: cover;
             /* animation: launch 2s cubic-bezier(.64,.04,.76,.13); */
+        }
+
+        #explosion{
+            display: none;
+            background-image: url(explosion.gif);
+            width: 256px;
+            height:192px;
+            background-size: cover;
         }
 
         @keyframes launch {
@@ -108,29 +124,36 @@
                 sky.appendChild(star)
             }
         </script>
-        <!-- <div id="moon"></div> -->
-
-
-        <div id="spaceship"></div>
-
+        <div id="moon"></div>
+        <div id="control">
+            <div id="spaceship"></div>
+            <div id="explosion"></div>
+        </div>
+        
     </div>
 
     <script>
         document.onkeydown=function(event){
             if(event.key=="a"){
-                spaceship.style.left=spaceship.offsetLeft-50+"px"
+                control.style.left=control.offsetLeft-50+"px"
             }
 
             if(event.key=="d"){
-                spaceship.style.left=spaceship.offsetLeft+50+"px"
+                control.style.left=control.offsetLeft+50+"px"
             }
 
             if(event.key=="w"){
-                spaceship.style.top=spaceship.offsetTop-50+"px"
+                control.style.top=control.offsetTop-50+"px"
             }
 
             if(event.key=="s"){
-                spaceship.style.top=spaceship.offsetTop+50+"px"
+                control.style.top=control.offsetTop+50+"px"
+            }
+
+            if(event.key==" "){
+                new Audio("explosion.mp3").play();
+                spaceship.style.display="none";
+                explosion.style.display="block";
             }
 
             console.log(event.key);
