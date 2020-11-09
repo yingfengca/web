@@ -1,148 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Star</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        #sky {
-            background-color: black;
-            height: 100vh;
-        }
-
-        #moon {
-            width: 200px;
-            height: 200px;
-            background-color: #fff;
-
-            position: absolute;
-            left: 100px;
-            top: 100px;
-
-            border-radius: 50%;
-            /* animation: twinkling 1s infinite alternate; */
-        }
-
-
-        @keyframes twinkling {
-            from {
-                box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.6);
-            }
-
-            to {
-                box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.3);
-            }
-        }
-
-
-
-        @keyframes lunch {
-            to{
-                bottom: 100vh;
-            }
-        }
-
-        #spaceship{
-            width: 200px;
-            height: 200px;
-            background-image: url(spaceship.png);
-            background-size: cover;
-
-            position: absolute;
-            top:100vh;
-            left:50vw;
-            transform: translate(-50%,-100%);
-
-            /* animation: launch 2s cubic-bezier(.64,.04,.76,.13); */
-        }
-
-        @keyframes launch {
-            from{
-
-            }
-            to{
-                top:0vh;
-            }
-        }
-
-
     </style>
-
 </head>
 
 <body>
-    <div id="sky">
-        <script>
-            for (let i = 0; i < 300; i++) {
-                let star = document.createElement("div");
-    
-                let size = 3+3*Math.random();
-                star.style.width = size + "px";
-                star.style.height = size + "px";
-    
-                let red=50+200*Math.random();
-                let green=50+200*Math.random();
-                let blue=200+55*Math.random();
-                // star.style.backgroundColor = "red";
-                // star.style.backgroundColor = "rgb(100,50,200)";
-                // star.style.backgroundColor = "rgb("+red+","+green+","+blue+")";
-                star.style.backgroundColor = `rgb(${red},${green},${blue})`;
-                star.style.borderRadius = "50%"
-    
-                star.style.position = "absolute"
-                let x = 99 * Math.random();
-                let y = 99 * Math.random();
-                star.style.left = x + "vw";
-                star.style.top = y + "vh";
-    
-                // let duration=1*Math.random();//0~1
-                // let duration=0.5+0.5*Math.random();//0.5~1
-                // star.style.animation = `twinkling ${duration}s linear infinite alternate`;
-    
-                sky.appendChild(star)
-            }
-        </script>
-        <!-- <div id="moon"></div> -->
+    <div id="sky"></div>
+    <div id="moon"></div>
+    <div id="spaceship"></div>
+    <div id="explosion"></div>
 
-
-        <div id="spaceship"></div>
-
-    </div>
-
-    <script>
-        document.onkeydown=function(event){
-            if(event.key=="a"){
-                spaceship.style.left=spaceship.offsetLeft-50+"px"
-            }
-
-            if(event.key=="d"){
-                spaceship.style.left=spaceship.offsetLeft+50+"px"
-            }
-
-            if(event.key=="w"){
-                spaceship.style.top=spaceship.offsetTop-50+"px"
-            }
-
-            if(event.key=="s"){
-                spaceship.style.top=spaceship.offsetTop+50+"px"
-            }
-
-            console.log(event.key);
-
-
-
-        }
-        
-        spaceship.style.top=spaceship.offsetTop-0+"px";
-        spaceship.style.left=spaceship.offsetLeft-0+"px";
-        
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

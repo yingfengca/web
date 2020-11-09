@@ -1,0 +1,78 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#sky {
+    background-color: black;
+    height: 100vh;
+}
+
+#moon {
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+
+    position: absolute;
+    left: 100px;
+    top: 100px;
+
+    border-radius: 50%;
+    /* animation: twinkling 1s infinite alternate; */
+}
+
+
+@keyframes twinkling {
+    from {
+        box-shadow: 0 0 3px 3px rgba(255, 255, 255, 0.6);
+    }
+
+    to {
+        box-shadow: 0 0 1px 1px rgba(255, 255, 255, 0.3);
+    }
+}
+
+
+
+@keyframes lunch {
+    to{
+        bottom: 100vh;
+    }
+}
+
+#spaceship{
+    width: 200px;
+    height: 200px;
+    background-image: url(spaceship.png);
+    background-size: cover;
+
+    position: absolute;
+    top:100vh;
+    left:50vw;
+    transform: translate(-50%,-100%);
+
+    /* animation: launch 2s cubic-bezier(.64,.04,.76,.13); */
+}
+
+@keyframes launch {
+    from{
+
+    }
+    to{
+        top:0vh;
+    }
+}
+
+#explosion{
+    display: none;
+    position: absolute;
+    top:100vh;
+    left: 50vw;
+    transform: translate(-50%,-100%);
+
+    width: 256px;
+    height:192px;
+    background-image: url(explosion.gif);
+    background-size: cover;
+    /* background-color: #fff; */
+}
